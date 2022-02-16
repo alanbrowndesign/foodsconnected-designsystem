@@ -1,4 +1,4 @@
-import * as React from 'react';
+import tw from 'twin.macro';
 
 import Layout from '@/components/layout/Layout';
 import ArrowLink from '@/components/links/ArrowLink';
@@ -20,9 +20,12 @@ import Vercel from '~/svg/Vercel.svg';
 // Before you begin editing, follow all comments with `STARTERCONF`,
 // to customize the default configuration.
 
+const Input = tw.input`border hover:border-black bg-red-500`;
+
 export default function HomePage() {
   return (
     <Layout>
+      <Input />
       {/* <Seo templateTitle='Home' /> */}
       <Seo />
 
