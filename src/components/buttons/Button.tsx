@@ -1,7 +1,7 @@
 import tw, { styled } from 'twin.macro';
 
 const StyledButton = styled('button', {
-  ...tw`rounded-md bg-red-500 p-4 font-bold text-white`,
+  ...tw`rounded-md bg-blue-500 p-4 font-bold text-white`,
 });
 
 const StyledInput = styled.input({
