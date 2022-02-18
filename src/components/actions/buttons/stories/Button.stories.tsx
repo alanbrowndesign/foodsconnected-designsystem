@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 import { HiSearch } from 'react-icons/hi';
 
-import { Button } from '@/components/buttons/Button';
+import { Button } from '@/components';
 
 export default {
   title: 'Components/Buttons/Button',

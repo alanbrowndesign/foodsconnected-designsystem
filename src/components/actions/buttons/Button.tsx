@@ -1,7 +1,28 @@
 import tw, { styled } from 'twin.macro';
 
 const StyledButton = styled('button', {
-  ...tw`rounded-md bg-blue-500 p-4 font-bold text-white`,
+  // base styles with Tailwind:
+  ...tw`rounded-md p-4 font-bold text-white text-7`,
+
+  // other custom shit:
+  '&::after': {
+    content: '',
+  },
+
+  variants: {
+    small: {
+      fontSize: 11,
+    },
+    type: {
+      primary: {
+        background: tw`bg-blue-500`,
+      },
+      secondary: {
+        background: 'transparent',
+        border: tw`border-b-blue-500`,
+      },
+    },
+  },
 });
 
 const StyledInput = styled.input({
