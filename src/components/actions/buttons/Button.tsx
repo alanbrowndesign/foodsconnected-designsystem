@@ -1,47 +1,66 @@
-import tw, { styled } from 'twin.macro';
+import { styled } from '@/styles/stitches.config';
+import tw, { theme } from 'twin.macro';
+import { motion } from 'framer-motion';
 
-const StyledButton = styled('button', {
+const StyledButton = styled(motion.button, {
   // base styles with Tailwind:
-  ...tw`rounded-md p-4 font-bold text-white text-7`,
+  ...tw`rounded-md px-2 py-1 text-neutral-100 relative`,
+  typeStyle: 'body',
+  fontFamily: 'display',
+  fontWeight: '$heavy',
+  color: '$white',
+
+  '.button-inner': {
+    ...tw`relative z-10`,
+  },
 
   // other custom shit:
   '&::after': {
     content: '',
+    ...tw`block absolute inset-0 z-0 rounded-md`,
   },
 
   variants: {
-    small: {
-      fontSize: 11,
-    },
     type: {
       primary: {
-        background: tw`bg-blue-500`,
+        '&::after': {
+          ...tw`bg-primary-brand`,
+        },
       },
       secondary: {
+        ...tw`text-primary-brand`,
+        '&::after': {
+          ...tw`bg-transparent border-2 border-primary-brand`,
+        },
         background: 'transparent',
-        border: tw`border-b-blue-500`,
       },
     },
   },
 });
 
-const StyledInput = styled.input({
-  background: 'red',
-});
+type ButtonProps = {
+  type?: any;
+  children: React.ReactNode;
+};
 
-export const Button = (props: any) => {
-  const { label } = props;
+export const Button = (props: ButtonProps) => {
+  const { type, children } = props;
   return (
-    <>
-      <StyledInput />
-      {/* <button tw='rounded-md bg-red-500 p-4 font-bold text-white'>
-        {label}
-      </button> */}
-      <StyledButton>{label}</StyledButton>
-    </>
+    <StyledButton
+      type={type}
+      whileHover={{
+        scale: 1.05,
+      }}
+      whileTap={{
+        scale: 0.975,
+      }}
+    >
+      <div className='button-inner'>{children}</div>
+    </StyledButton>
   );
 };
 
 Button.defaultProps = {
-  label: 'I am a button!',
+  children: 'I am a button!',
+  type: 'primary',
 };

@@ -4,108 +4,36 @@ import { globalCss } from './stitches.config';
 
 const customStyles1 = {
   body: {
-    WebkitTapHighlightColor: theme`colors.purple.500`,
     ...tw`antialiased`,
+    lineHeight: 'var(--lineHeights-normal)',
   },
 
   ':root': {
-    '--fluid-min-width': 320,
-    '--fluid-max-width': 1440,
-    '--fluid-screen': '100vw',
-    '--fluid-bp':
-      'calc((var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) / (var(--fluid-max-width) - var(--fluid-min-width)))',
-  },
-  '@media screen and (min-width: 1440px)': {
-    ':root': {
-      '--fluid-screen': 'calc(var(--fluid-max-width) * 1px)',
-    },
-  },
-};
+    /* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1440,16,1.2,7,3,768&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
 
-const customStyles2 = {
-  ':root': {
-    '--f--3-min': '11.39',
-    '--f--3-max': '10.42',
-    '--step--3': `calc(
-                    ((var(--f--3-min) / 16) * 1rem) + (var(--f--3-max) - var(--f--3-min)) *
-                    var(--fluid-bp)
-    )`,
+    '--step--3': '0.6875rem', // 11px
+    '--step--2': '0.75rem', // 12px
+    '--step--1': '0.875rem', // 14px
+    '--step-0': '1rem', // 16px
+    '--step-1': 'clamp(1.13rem, calc(1.10rem + 0.11vw), 1.20rem)',
+    '--step-2': 'clamp(1.27rem, calc(1.22rem + 0.25vw), 1.44rem)',
+    '--step-3': 'clamp(1.42rem, calc(1.34rem + 0.43vw), 1.73rem)',
+    '--step-4': 'clamp(1.60rem, calc(1.47rem + 0.67vw), 2.07rem)',
+    '--step-5': 'clamp(1.80rem, calc(1.61rem + 0.98vw), 2.49rem)',
+    '--step-6': 'clamp(2.03rem, calc(1.75rem + 1.37vw), 2.99rem)',
+    '--step-7': 'clamp(2.28rem, calc(1.91rem + 1.86vw), 3.58rem)',
 
-    '--f--2-min': '12.76',
-    '--f--2-max': '12.50',
-    '--step--2': `calc(
-                    ((var(--f--2-min) / 16) * 1rem) + (var(--f--2-max) - var(--f--2-min)) *
-                    var(--fluid-bp)
-    )`,
-
-    '--f--1-min': '14.29',
-    '--f--1-max': '15.00',
-    '--step--1': `calc(
-                    ((var(--f--1-min) / 16) * 1rem) + (var(--f--1-max) - var(--f--1-min)) *
-                    var(--fluid-bp)
-    )`,
-
-    '--f-0-min': '16.00',
-    '--f-0-max': '18.00',
-    '--step-0': `calc(
-                  ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) *
-                  var(--fluid-bp)
-    )`,
-
-    '--f-1-min': '17.92',
-    '--f-1-max': '21.60',
-    '--step-1': `calc(
-                  ((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) *
-                  var(--fluid-bp)
-    )`,
-
-    '--f-2-min': '20.07',
-    '--f-2-max': '25.92',
-    '--step-2': `calc(
-                  ((var(--f-2-min) / 16) * 1rem) + (var(--f-2-max) - var(--f-2-min)) *
-                  var(--fluid-bp)
-    )`,
-
-    '--f-3-min': '22.48',
-    '--f-3-max': '31.10',
-    '--step-3': `calc(
-                  ((var(--f-3-min) / 16) * 1rem) + (var(--f-3-max) - var(--f-3-min)) *
-                  var(--fluid-bp)
-    )`,
-
-    '--f-4-min': '25.18',
-    '--f-4-max': '37.32',
-    '--step-4': `calc(
-      ((var(--f-4-min) / 16) * 1rem) + (var(--f-4-max) - var(--f-4-min)) *
-        var(--fluid-bp)
-    )`,
-
-    '--f-5-min': '28.20',
-    '--f-5-max': '44.79',
-    '--step-5': `calc(
-                  ((var(--f-5-min) / 16) * 1rem) + (var(--f-5-max) - var(--f-5-min)) *
-                  var(--fluid-bp)
-    )`,
-
-    '--f-6-min': '31.58',
-    '--f-6-max': '53.75',
-    '--step-6': `calc(
-      ((var(--f-6-min) / 16) * 1rem) + (var(--f-6-max) - var(--f-6-min)) *
-        var(--fluid-bp)
-    )`,
-
-    '--f-7-min': '35.37',
-    '--f-7-max': '64.50',
-    '--step-7': `calc(
-                  ((var(--f-7-min) / 16) * 1rem) + (var(--f-7-max) - var(--f-7-min)) *
-                  var(--fluid-bp)
-    )`,
+    // Breakpoints:
+    '--media-xs': '0',
+    '--media-sm': '48rem', // 768
+    '--media-md': '64rem', // 1024
+    '--media-lg': '80rem', // 1280
+    '--media-xl': '90rem', // 1440
   },
 };
 
 const styles = () => {
   globalCss(customStyles1)();
-  globalCss(customStyles2)();
   globalCss(globalStyles as Record<any, any>)();
 };
 

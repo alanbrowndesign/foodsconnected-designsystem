@@ -1,0 +1,24 @@
+{
+    "name": "@alanbrowndesign/connected-ui-edge",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/alanbrowndesign"
+    },
+    "version": "0.0.13",
+    "license": "MIT",
+    "scripts": {
+        "rollup": "rollup -c",
+        "watch": "rollup -c -w",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook"
+    },
+    "peerDependencies": {
+        "react": "^17.0.2"
+    },
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "files": [
+        "dist"
+    ],
+    "types": "dist/index.d.ts",
+    "yalcSig": "584e8db1c89caed58d7a444e463ea31b"
+}
