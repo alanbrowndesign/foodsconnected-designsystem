@@ -1,8 +1,5 @@
-import tw from 'twin.macro';
 import Layout from '@/components/layout/Layout';
 import { Text } from 'connected-ui-edge';
-import { MainNav } from '@/components';
-import { styled } from '@/styles/stitches.config';
 
 // @refresh reset
 
