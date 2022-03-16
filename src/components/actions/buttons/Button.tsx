@@ -6,7 +6,7 @@ const StyledButton = styled(motion.button, {
   // base styles with Tailwind:
   ...tw`rounded-md px-2 py-1 text-neutral-100 relative`,
   typeStyle: 'body',
-  fontFamily: 'display',
+  fontFamily: '$display',
   fontWeight: '$heavy',
   color: '$white',
 
