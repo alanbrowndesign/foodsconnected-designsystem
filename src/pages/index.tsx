@@ -1,6 +1,6 @@
 import tw from 'twin.macro';
 import Link from 'next/link';
-import Layout from '@/components/layout/Layout';
+import { PageWrapper } from '@/components';
 import { styled } from '@/styles/stitches.config';
 
 // @refresh reset
@@ -9,10 +9,10 @@ const textString = 'The quick brown fox';
 
 export default function HomePage() {
   return (
-    <Layout>
+    <PageWrapper>
       <Link href={'monolith-reskin'}>
         <a>Monolith app reskin</a>
       </Link>
-    </Layout>
+    </PageWrapper>
   );
 }

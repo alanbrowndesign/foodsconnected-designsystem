@@ -27,7 +27,7 @@ export const { styled, css, theme, globalCss, config, keyframes } =
     },
   });
 
-export const darkTheme = createTheme('darkUI', {
+export const darkTheme = createTheme('dark', {
   ...stitchesDarkColors,
 });
 

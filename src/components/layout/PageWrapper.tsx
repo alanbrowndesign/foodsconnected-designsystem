@@ -3,7 +3,10 @@ import { getSpaces, getTokens } from 'connected-ui-edge';
 const tokens = config.theme;
 import Head from 'next/head';
 
-const StyledLayout = styled('div', {
+const StyledPageWrapper = styled('div', {
+  [`.${darkTheme}`]: {
+    visibility: 'visible',
+  },
   variants: {
     background: {
       ...getTokens(tokens.colors, 'backgroundColor'),
@@ -14,39 +17,28 @@ const StyledLayout = styled('div', {
   },
 });
 
-type LayoutProps = {
+type PageWrapperProps = {
   children: React.ReactNode;
   background?: string;
   gap?: number;
   title?: string;
-  dark?: boolean;
 };
 
-export default function Layout({
-  title,
-  children,
-  background,
-  gap,
-  dark,
-}: LayoutProps) {
+export const PageWrapper = (props: PageWrapperProps) => {
   // Put Header or Footer Here
+  const { title, children, background, gap } = props;
   return (
     <>
       <Head>
         <title>{title}</title>
       </Head>
-      <StyledLayout
-        gap={gap}
-        background={background}
-        className={dark ? darkTheme : ''}
-      >
+      <StyledPageWrapper gap={gap} background={background}>
         {children}
-      </StyledLayout>
+      </StyledPageWrapper>
     </>
   );
-}
+};
 
-Layout.defaultProps = {
+PageWrapper.defaultProps = {
   title: 'Foods Connected UI',
-  theme: 'light',
 };

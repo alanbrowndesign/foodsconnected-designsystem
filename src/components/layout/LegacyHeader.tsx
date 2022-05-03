@@ -7,10 +7,10 @@ const links = [
   { href: '/', label: 'Route 2' },
 ];
 
-export default function Header() {
+export const LegacyHeader = () => {
   return (
     <header className='sticky top-0 z-50 bg-white'>
-      <div className='layout flex h-14 items-center justify-between'>
+      <div className='layout h-14 flex items-center justify-between'>
         <UnstyledLink href='/' className='font-bold hover:text-gray-600'>
           Home
         </UnstyledLink>
@@ -28,4 +28,4 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};

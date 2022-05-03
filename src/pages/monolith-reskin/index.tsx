@@ -1,4 +1,4 @@
-import Layout from '@/components/layout/Layout';
+import { PageWrapper } from '@/components';
 import tw from 'twin.macro';
 import { Header, PillNav, Tile, SelectMenu } from '@/components';
 import { styled, globalCss, theme } from '@/styles/stitches.config';
@@ -83,7 +83,7 @@ export default function HomePage() {
     },
   ];
   return (
-    <Layout gap={4}>
+    <PageWrapper gap={4}>
       <Header />
       <Container gap={3} sidePadding='tight'>
         <div tw='lg:flex justify-between space-x-2'>
@@ -168,6 +168,6 @@ export default function HomePage() {
           </div>
         </Tile>
       </Container>
-    </Layout>
+    </PageWrapper>
   );
 }

@@ -1,16 +1,20 @@
-import type { NextPage } from 'next';
-import { styled, darkTheme, globalCss } from '@/styles/stitches.config';
+import { PageWrapper } from '@/components';
+import { Text, Button, Container } from 'connected-ui-edge';
 import tw from 'twin.macro';
-import Layout from '@/components/layout/Layout';
-import { Container, Button } from 'connected-ui-edge';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { styled, globalCss } from '@/styles/stitches.config';
+import { useEffect } from 'react';
 import { useTheme } from 'next-themes';
+
+// @refresh reset
 
 const globalPageStyles = globalCss({
   body: {
     background: '$slate3',
   },
 });
+
+const StyledThemeToggle = styled('button', {});
 
 const FC_Logo = () => {
   return (
@@ -117,10 +121,43 @@ const LogoHead = styled('div', {
 });
 const StyledHeader = styled('header', {
   height: '$space$3xl',
-  background: 'white',
+  background: '$slate1',
 });
 
-const Dashboard: NextPage = () => {
+const StyledText = styled('div', {
+  color: '$red10',
+  typeStyle: 'subhead',
+  // [`.${darkTheme} &`]: {
+  //   color: '$green10',
+  // },
+  '@sm': {
+    typeStyle: 'headline',
+  },
+  '@md': {
+    typeStyle: 'hero',
+  },
+});
+
+const StyledWrapper = styled('div', {});
+
+const TextTest = (props: any) => {
+  const {} = props;
+  return (
+    <>
+      <StyledText>I am styled text!</StyledText>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+    </>
+  );
+};
+
+const textString = 'The quick brown fox';
+
+export default function Dashboard() {
   globalPageStyles();
 
   // Theming
@@ -128,13 +165,14 @@ const Dashboard: NextPage = () => {
   const { setTheme, resolvedTheme } = useTheme();
 
   // When mounted on client, now we can show the UI
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   if (!mounted) return null;
 
   return (
-    <Layout>
-      {/* Header */}
+    <PageWrapper>
       <StyledHeader>
         <LogoHead>
           <FC_Logo />
@@ -147,8 +185,13 @@ const Dashboard: NextPage = () => {
           <h1 tw='text-title1 text-indigo-12'>Dashboards</h1>
         </div>
       </Container>
-    </Layout>
+      <StyledThemeToggle
+        onClick={() => {
+          setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+        }}
+      >
+        Toggle theme
+      </StyledThemeToggle>
+    </PageWrapper>
   );
-};
-
-export default Dashboard;
+}

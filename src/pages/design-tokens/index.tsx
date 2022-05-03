@@ -1,9 +1,10 @@
-import Layout from '@/components/layout/Layout';
+import { PageWrapper } from '@/components';
 import { Text, Button } from 'connected-ui-edge';
 import tw from 'twin.macro';
 import { useState } from 'react';
 import { styled, globalCss, darkTheme } from '@/styles/stitches.config';
 import { useEffect } from 'react';
+import { useTheme } from 'next-themes';
 
 // @refresh reset
 
@@ -48,32 +49,32 @@ const TextTest = (props: any) => {
 
 const textString = 'The quick brown fox';
 
-export default function HomePage() {
+export default function DesignTokens() {
   globalPageStyles();
-  const [isDarkTheme, updateIsDarkTheme] = useState(false);
+
+  // Theming
+  const [mounted, setMounted] = useState(false);
+  const { setTheme, resolvedTheme } = useTheme();
+
+  // When mounted on client, now we can show the UI
   useEffect(() => {
-    const htmlel = document.querySelector('html');
-    if (htmlel !== null) {
-      if (isDarkTheme) {
-        htmlel.classList.add(darkTheme);
-        htmlel.classList.remove('light');
-      } else {
-        htmlel.classList.add('light');
-        htmlel.classList.remove(darkTheme);
-      }
-    }
-  }, [isDarkTheme]);
+    setMounted(true);
+    // setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+  }, []);
+
+  if (!mounted) return null;
+
   return (
-    <StyledWrapper>
-      <StyledThemeToggle
-        onClick={() => {
-          updateIsDarkTheme(!isDarkTheme);
-        }}
-      >
-        Toggle theme
-      </StyledThemeToggle>
-      <TextTest />
-      <Layout>
+    <PageWrapper>
+      <StyledWrapper>
+        <StyledThemeToggle
+          onClick={() => {
+            setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+          }}
+        >
+          Toggle theme
+        </StyledThemeToggle>
+        <TextTest />
         <main>
           <Text typeStyle='headline' tag='h2' color='blue11'>
             I am a component
@@ -136,7 +137,7 @@ export default function HomePage() {
             {textString}
           </Text>
         </main>
-      </Layout>
-    </StyledWrapper>
+      </StyledWrapper>
+    </PageWrapper>
   );
 }

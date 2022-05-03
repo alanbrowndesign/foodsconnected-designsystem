@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   localStyles();
   stitchesStyles();
   return (
-    <ThemeProvider>
+    <ThemeProvider attribute='class'>
       <Component {...pageProps} />
     </ThemeProvider>
   );
