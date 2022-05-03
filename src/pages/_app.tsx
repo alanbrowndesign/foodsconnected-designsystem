@@ -1,5 +1,7 @@
 import { AppProps } from 'next/app';
-import styles from '@/styles/globalStyles';
+import { stitchesStyles } from 'connected-ui-edge';
+import { localStyles } from '@/styles/localStyles';
+import { ThemeProvider } from 'next-themes';
 
 /**
  * !STARTERCONF info
@@ -7,8 +9,13 @@ import styles from '@/styles/globalStyles';
  */
 
 function MyApp({ Component, pageProps }: AppProps) {
-  styles();
-  return <Component {...pageProps} />;
+  localStyles();
+  stitchesStyles();
+  return (
+    <ThemeProvider>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
 }
 
 export default MyApp;

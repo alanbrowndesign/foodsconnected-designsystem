@@ -1,5 +1,4 @@
-import { styled } from '@/styles/stitches.config';
-import { config } from '@/styles/stitches.config';
+import { styled, config, darkTheme } from '@/styles/stitches.config';
 import { getSpaces, getTokens } from 'connected-ui-edge';
 const tokens = config.theme;
 import Head from 'next/head';
@@ -20,6 +19,7 @@ type LayoutProps = {
   background?: string;
   gap?: number;
   title?: string;
+  dark?: boolean;
 };
 
 export default function Layout({
@@ -27,6 +27,7 @@ export default function Layout({
   children,
   background,
   gap,
+  dark,
 }: LayoutProps) {
   // Put Header or Footer Here
   return (
@@ -34,7 +35,11 @@ export default function Layout({
       <Head>
         <title>{title}</title>
       </Head>
-      <StyledLayout gap={gap} background={background}>
+      <StyledLayout
+        gap={gap}
+        background={background}
+        className={dark ? darkTheme : ''}
+      >
         {children}
       </StyledLayout>
     </>
@@ -43,4 +48,5 @@ export default function Layout({
 
 Layout.defaultProps = {
   title: 'Foods Connected UI',
+  theme: 'light',
 };

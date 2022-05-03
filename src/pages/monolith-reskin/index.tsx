@@ -2,60 +2,13 @@ import Layout from '@/components/layout/Layout';
 import tw from 'twin.macro';
 import { Header, PillNav, Tile, SelectMenu } from '@/components';
 import { styled, globalCss, theme } from '@/styles/stitches.config';
-import { getTokens, getSpaces, Text } from 'connected-ui-edge';
-import { Button } from '@/components';
+import { Text, Button, Container } from 'connected-ui-edge';
 
 const globalPageStyles = globalCss({
   body: {
     background: '$neutral200',
   },
 });
-
-const StyledContainer = styled('div', {
-  width: '100%',
-  marginInline: 'auto',
-  variants: {
-    width: {
-      ...getTokens(theme.sizes, 'maxWidth'),
-    },
-    gap: {
-      ...getSpaces(),
-    },
-    sidePadding: {
-      none: {
-        paddingInline: 0,
-      },
-      tight: {
-        paddingInline: '$2',
-      },
-      normal: {
-        paddingInline: '$4',
-      },
-      loose: {
-        paddingInline: '$6',
-      },
-    },
-  },
-  defaultVariants: {
-    sidePadding: 'normal',
-    width: 'max',
-  },
-});
-
-type ContainerProps = {
-  width?: string;
-  gap?: number;
-  sidePadding?: any;
-  children: React.ReactNode;
-};
-
-const Container = ({ width, gap, sidePadding, children }: ContainerProps) => {
-  return (
-    <StyledContainer width={width} gap={gap} sidePadding={sidePadding}>
-      {children}
-    </StyledContainer>
-  );
-};
 
 export default function HomePage() {
   globalPageStyles();
@@ -161,8 +114,21 @@ export default function HomePage() {
               })}
             </div>
             <div tw='flex gap-2'>
-              <Button>Filter</Button>
-              <Button type='secondary'>Clear filters</Button>
+              <Button
+                onClick={() => {
+                  return false;
+                }}
+              >
+                Filter
+              </Button>
+              <Button
+                onClick={() => {
+                  return false;
+                }}
+                type='secondary'
+              >
+                Clear filters
+              </Button>
             </div>
           </div>
         </Tile>

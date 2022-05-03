@@ -12,7 +12,7 @@ type SelectMenuProps = {
 const StyledSelect = styled('select', {
   height: '$5',
   border: '1px solid $neutral400',
-  borderRadius: '$xs',
+  borderRadius: '$sm',
   width: '100%',
   padding: '$05',
   typeStyle: 'body',

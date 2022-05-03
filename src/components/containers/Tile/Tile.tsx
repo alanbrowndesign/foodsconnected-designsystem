@@ -1,3 +1,4 @@
+import tw from 'twin.macro';
 import { styled } from '@/styles/stitches.config';
 import { getSpaces } from 'connected-ui-edge';
 
@@ -6,7 +7,7 @@ const StyledWrapper = styled('div', {
   neutral300Border: '1px solid #DAE1E8',
   boxShadow: '1px 2px 12px rgba(10,40,86,0.12)',
   borderRadius: 8,
-  padding: 24,
+  padding: '$3',
   variants: {
     padding: {
       loose: {

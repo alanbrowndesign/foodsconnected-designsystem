@@ -28,6 +28,7 @@ const StyledPill = styled(motion.a, {
   flexWrap: 'nowrap',
   flexShrink: 0,
   transition: 'background-color 0.25s ease',
+  textDecoration: 'none',
 
   '&:hover': {
     background: '#F2F7FF',

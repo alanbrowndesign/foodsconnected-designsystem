@@ -1,0 +1,25 @@
+{
+    "name": "connected-ui-edge",
+    "version": "0.0.29",
+    "license": "MIT",
+    "scripts": {
+        "rollup": "rollup -c && yalc push",
+        "watch": "rollup -c -w",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook",
+        "chromatic": "npx chromatic --project-token=15f86ff3bb86"
+    },
+    "peerDependencies": {
+        "framer-motion": "^6.2.8",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    },
+    "dependencies": {},
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "yalcSig": "f7794dff8e7db894376853d84a83b12c"
+}

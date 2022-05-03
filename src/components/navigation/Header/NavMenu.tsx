@@ -35,6 +35,9 @@ const IconMenuArrow = () => {
 
 /************ Nav **********/
 const StyledNav = styled(NavigationMenu.List, {
+  margin: 0,
+  padding: 0,
+  listStyle: 'none',
   '@md': {
     ...tw`flex`,
   },
@@ -79,29 +82,10 @@ const StyledNavItem = styled(NavigationMenu.Item, {
   },
 });
 
-const StyledIndicator = styled(NavigationMenu.Indicator, {
-  position: 'relative',
-  zIndex: 10,
-  height: 0,
-  opacity: 0,
-  transition: 'opacity 0.2s ease',
-  '@media (prefers-reduced-motion: no-preference)': {
-    transition: 'width, transform, 250ms ease',
-  },
-
-  '&[data-state="visible"]': {
-    opacity: 1,
-  },
-
-  '& > svg': {
-    height: 15,
-    position: 'absolute',
-    right: 2,
-    top: -14,
-  },
+const StyledNavTrigger = styled(NavigationMenu.Trigger, {
+  background: 'none',
+  border: 0,
 });
-
-const StyledNavTrigger = styled(NavigationMenu.Trigger, {});
 
 const enterFromTop = keyframes({
   from: { transform: 'translateY(-100%)', opacity: 0 },
@@ -114,13 +98,13 @@ const enterFromBottom = keyframes({
 });
 
 const enterFromLeft = keyframes({
-  from: { transform: 'translateX(-20%)', opacity: 0 },
-  to: { transform: 'translateX(0)', opacity: 1 },
+  from: { transform: 'translateX(-20%) scale(0.3)', opacity: 0 },
+  to: { transform: 'translateX(0) scale(1)', opacity: 1 },
 });
 
 const enterFromRight = keyframes({
-  from: { transform: 'translateX(20%)', opacity: 0 },
-  to: { transform: 'translateX(0)', opacity: 1 },
+  from: { transform: 'translateX(20%) scale(0.3)', opacity: 0 },
+  to: { transform: 'translateX(0) scale(1)', opacity: 1 },
 });
 
 const exitToTop = keyframes({
@@ -134,17 +118,18 @@ const exitToBottom = keyframes({
 });
 
 const exitToLeft = keyframes({
-  from: { transform: 'translateX(0)', opacity: 1 },
-  to: { transform: 'translateX(-20%)', opacity: 0 },
+  from: { transform: 'translateX(0) scale(1)', opacity: 1 },
+  to: { transform: 'translateX(-20%) scale(0.3)', opacity: 0 },
 });
 
 const exitToRight = keyframes({
-  from: { transform: 'translateX(0)', opacity: 1 },
-  to: { transform: 'translateX(20%)', opacity: 0 },
+  from: { transform: 'translateX(0) scale(1)', opacity: 1 },
+  to: { transform: 'translateX(20%) scale(0.3)', opacity: 0 },
 });
 
 const StyledContent = styled(NavigationMenu.Content, {
   position: 'absolute',
+  zIndex: 20,
   background: '#FCFDFF',
   border: '1px solid #DAE1E8',
   boxShadow: '1px 2px 12px rgba(10, 40, 86, 0.12)',
@@ -152,12 +137,20 @@ const StyledContent = styled(NavigationMenu.Content, {
   right: -16,
   top: '100%',
   padding: 32,
-  animationDuration: '250ms',
+  animationDuration: '300ms',
   animationTimingFunction: 'ease',
+  transformOrigin: 'right top',
   '&[data-motion="from-start"]': { animationName: enterFromLeft },
   '&[data-motion="from-end"]': { animationName: enterFromRight },
   '&[data-motion="to-start"]': { animationName: exitToLeft },
   '&[data-motion="to-end"]': { animationName: exitToRight },
+  transition: 'opacity 0.25s',
+  '&[data-state="closed"]': {
+    opacity: 0,
+  },
+  '&[data-state="open"]': {
+    opacity: 1,
+  },
 
   '& > svg': {
     height: 15,
@@ -289,7 +282,7 @@ const NavMenuItem = ({ children, label }: NavMenuItemProps) => (
     <StyledNavTrigger>
       {label} <IconChevron />
     </StyledNavTrigger>
-    <StyledContent>
+    <StyledContent forceMount>
       <IconMenuArrow />
       {children}
     </StyledContent>
