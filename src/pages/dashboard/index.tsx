@@ -5,7 +5,7 @@ import { styled, globalCss, darkTheme } from '@/styles/stitches.config';
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { blue } from '@radix-ui/colors';
-import { SearchBar, PageHeader, IconNav } from './local-components';
+import { SearchBar, PageHeader, IconNav } from '@/local-components';
 
 // @refresh reset
 
