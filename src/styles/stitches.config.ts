@@ -9,7 +9,7 @@ import {
   stitchesDarkColors,
 } from 'connected-ui-edge';
 
-export const { styled, css, theme, globalCss, config, keyframes } =
+export const { styled, css, theme, globalCss, config, keyframes, getCssText } =
   createStitches({
     // prefix: 'app',
     themeMap: {

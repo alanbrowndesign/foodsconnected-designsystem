@@ -1880,6 +1880,11 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.2.tgz#830beaec4b4091a9e9398ac50f865ddea52186b9"
   integrity sha512-92FRmppjjqz29VMJ2dn+xdyXZBrMlE42AV6Kq6BwjWV7CNUW1hs2FtxSNLQE+gJhaZ6AAmYuO9y8dshhcBl7vA==
 
+"@radix-ui/colors@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@radix-ui/colors/-/colors-0.1.8.tgz#b08c62536fc462a87632165fb28e9b18f9bd047e"
+  integrity sha512-jwRMXYwC0hUo0mv6wGpuw254Pd9p/R6Td5xsRpOmaWkUHlooNWqVcadgyzlRumMq3xfOTXwJReU0Jv+EIy4Jbw==
+
 "@radix-ui/number@0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@radix-ui/number/-/number-0.1.0.tgz#73ad13d5cc5f75fa5e147d72e5d5d5e50d688256"
@@ -5107,8 +5112,10 @@ concat-stream@^2.0.0:
     readable-stream "^3.0.2"
     typedarray "^0.0.6"
 
-"connected-ui-edge@file:.yalc/connected-ui-edge":
-  version "0.0.29"
+connected-ui-edge@^0.0.30:
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/connected-ui-edge/-/connected-ui-edge-0.0.30.tgz#9f4e6dbf923e2645063699d362533830ac12a13f"
+  integrity sha512-bCLSa6fCdK7JSM+DEQLbBCoVaDTDXZ/zBCV4w7MDtRZcaP6McBikctpQJUDqrSeN3P0/GfoaBAD/YV9lAqozuA==
 
 console-control-strings@^1.0.0, console-control-strings@^1.1.0:
   version "1.1.0"

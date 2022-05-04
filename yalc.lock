@@ -8,11 +8,6 @@
     "@alanbrowndesign/connected-ui-edge": {
       "signature": "584e8db1c89caed58d7a444e463ea31b",
       "file": true
-    },
-    "connected-ui-edge": {
-      "signature": "f7794dff8e7db894376853d84a83b12c",
-      "file": true,
-      "replaced": "^0.0.28"
     }
   }
 }

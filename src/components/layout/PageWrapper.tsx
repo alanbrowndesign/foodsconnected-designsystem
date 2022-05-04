@@ -6,6 +6,7 @@ import Head from 'next/head';
 const StyledPageWrapper = styled('div', {
   [`.${darkTheme}`]: {
     visibility: 'visible',
+    color: '$green3',
   },
   variants: {
     background: {
