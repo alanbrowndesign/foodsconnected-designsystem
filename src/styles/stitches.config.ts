@@ -11,9 +11,7 @@ import {
 
 export const { styled, css, theme, globalCss, config, keyframes, getCssText } =
   createStitches({
-    // prefix: 'app',
     themeMap: {
-      // Map these properties to the `space` scale
       ...stitchesThemeMap,
     },
     media: {

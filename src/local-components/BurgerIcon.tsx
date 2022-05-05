@@ -1,6 +1,7 @@
 import { styled, darkTheme } from '@/styles/stitches.config';
 import tw from 'twin.macro';
 import { blue } from '@radix-ui/colors';
+import { forwardRef } from 'react';
 
 // burger icon
 const StyledBurgerIcon = styled('button', {
@@ -13,6 +14,7 @@ const StyledBurgerIcon = styled('button', {
   alignSelf: 'center',
   backgroundSize: '100%',
   background: '#03003C',
+  cursor: 'pointer',
   [`.${darkTheme} &`]: {
     background: '$blue8',
   },
@@ -63,15 +65,17 @@ const StyledBurgerIcon = styled('button', {
 type BurgerIconProps = {
   onClick?: any;
   isActive?: any;
+  ref?: any;
 };
 
-export const BurgerIcon = (props: BurgerIconProps) => {
+export const BurgerIcon = forwardRef((props: BurgerIconProps, ref: any) => {
   const { onClick, isActive } = props;
   return (
     <StyledBurgerIcon
       onClick={onClick}
       active={isActive}
       aria-label='Open the menu'
+      ref={ref}
     >
       <svg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
         <rect
@@ -103,4 +107,4 @@ export const BurgerIcon = (props: BurgerIconProps) => {
       </svg>
     </StyledBurgerIcon>
   );
-};
+});
