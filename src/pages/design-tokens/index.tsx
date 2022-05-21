@@ -47,6 +47,12 @@ const TextTest = (props: any) => {
   );
 };
 
+const StyledBox2 = styled('div', {
+  ...tw`text-hero m-2xl text-accent-orange border-2`,
+  typeStyle: 'hero',
+  border: 10,
+});
+
 const textString = 'The quick brown fox';
 
 export default function DesignTokens() {
@@ -74,6 +80,7 @@ export default function DesignTokens() {
         >
           Toggle theme
         </StyledThemeToggle>
+
         <TextTest />
         <main>
           <Text typeStyle='headline' tag='h2' color='blue11'>
@@ -83,6 +90,20 @@ export default function DesignTokens() {
             I am a button
           </Button>
           {/* hero */}
+
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+
+          <StyledBox2>I am hero text</StyledBox2>
+
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
           <Text typeStyle='hero' tag='h1' color='slate12'>
             {textString}
           </Text>

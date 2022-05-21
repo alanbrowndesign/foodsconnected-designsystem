@@ -179,6 +179,7 @@ export default function Dashboard() {
       <PageHeader>
         <IconNavWrapper />
       </PageHeader>
+
       <StyledExpandTrigger
         active={sideBarExpanded || sideBarHover}
         menuOpen={sideBarExpanded}
@@ -237,10 +238,7 @@ export default function Dashboard() {
                 {' '}
                 chevron hovering: {triggerHover.toString()}
               </h3>
-              <h3 tw='text-title3'>
-                {' '}
-                sidebar hovering: {sideBarHover.toString()}
-              </h3>
+              <div tw='text-hero text-blue-11'>Hello world</div>
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Nesciunt eveniet reprehenderit doloribus fuga veniam, itaque
